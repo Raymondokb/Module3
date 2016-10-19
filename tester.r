@@ -63,4 +63,22 @@ sqldf("select unique * from acs")
 length(unique(acs$AGEP))
 
 
-#################3
+#################
+library(XML)
+url <- "http://biostat.jhsph.edu/~jleek/contact.html"
+html <- htmlTreeParse(url, useInternalNodes =T) #doesnt seem to work
+
+library(httr); html2 <- GET(url)
+content2 <- content(html2, as="text")
+parsedHtml = htmlParse(content2, asText=TRUE)
+
+con = url("http://biostat.jhsph.edu/~jleek/contact.html")
+htmlCode = readLines(con)
+nchar(htmlCode[10])
+nchar(htmlCode[20])
+nchar(htmlCode[30])
+nchar(htmlCode[100])
+
+loadin <- read.fwf(file="D:\\Users\\user\\Downloads\\getdata%2Fwksst8110.for",skip=4, widths=c(12, 7, 4, 9, 4, 9, 4, 9, 4))
+sum(loadin[,4])
+#yay success
