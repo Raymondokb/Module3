@@ -57,3 +57,11 @@ rasterImage( as.raster(jpeg1), 3,3,8,8 )
 
 readJPEG(rawjpeg, TRUE)
 quantile(readJPEG(rawjpeg, TRUE), probs = c(0, 0.3, 0.8, 1))
+
+
+##
+gdp = read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2FGDP.csv")
+country = read.csv( "D:\\Users\\user\\Downloads\\getdata%2Fdata%2FEDSTATS_Country.csv")
+country$gdp = 1
+
+dim(country)
