@@ -73,7 +73,7 @@ loaddata3 <- read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2FGDPquiz4_3.c
 loaddata3a <- read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2FEDSTATS_Countryquiz4_3.csv", stringsAsFactors=FALSE, header=TRUE)
 
 grep("[Jj]une", loaddata3a$Special.Notes)
-length(grep("[Jj]une", loaddata3a$Special.Notes))
+length(grep("June 30", loaddata3a$Special.Notes)) #note, END OF JUNE means June 30
 
 #im in love with grep. Its the shortcut version of regex
 
