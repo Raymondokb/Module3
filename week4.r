@@ -31,3 +31,39 @@ dmy("03-04-2013")
 ymd_hms("2011-08-03 10:15:03")
 ymd_hms("2011-08-03 10:15:03", tz="Pacific/Auckland")
 ?Sys.timezone
+
+x = dmy(c("1jan2013", "2jan1960", "31mar1960", "30jul1960"))
+wday(x[1])
+wday(x[1], label=TRUE)
+
+# Gettin free data resources
+#www.data.go.jp
+#gapminder: development, human health
+#www.asdfree.com
+
+#http://www.infochimps.com/
+#www.kaggle.com***** offers data science competitions
+#CMU statlib
+
+
+#R PACKAGES
+### twitter, twitteR,
+# figshare, rfigshare
+# PLoS, rplos
+# rOpenSci
+# Facebook, RFacebook
+# "Google maps, RGoogleMaps
+
+
+##### Quiz time
+loaddata <- read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2Fss06hidquiz4.csv", stringsAsFactors = FALSE, header=TRUE)
+store <- strsplit(colnames(loaddata), "wgtp")
+store[123]
+
+loaddata2 <- read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2FGDPquiz4_2.csv", stringsAsFactors = FALSE, header = TRUE)
+
+loaddata2$GDP_num <- as.numeric(gsub(",", "", loaddata2$US.dollars.))
+mean(loaddata2$GDP_num)
+
+#loaddata2$Economy: country names
+grep("^United", loaddata2$Economy) #woah magic
