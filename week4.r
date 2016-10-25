@@ -67,3 +67,23 @@ mean(loaddata2$GDP_num)
 
 #loaddata2$Economy: country names
 grep("^United", loaddata2$Economy) #woah magic
+
+
+loaddata3 <- read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2FGDPquiz4_3.csv", stringsAsFactors = FALSE, header = TRUE)
+loaddata3a <- read.csv("D:\\Users\\user\\Downloads\\getdata%2Fdata%2FEDSTATS_Countryquiz4_3.csv", stringsAsFactors=FALSE, header=TRUE)
+
+grep("[Jj]une", loaddata3a$Special.Notes)
+length(grep("[Jj]une", loaddata3a$Special.Notes))
+
+#im in love with grep. Its the shortcut version of regex
+
+
+library(quantmod)
+amzn = getSymbols("AMZN", auto.assign=FALSE)
+sampleTimes = index(amzn)
+
+length(grep("2012",sampleTimes))
+
+sampleTimes2 <- amzn[grep("2012",sampleTimes),]
+sampleTimes2 <- index(sampleTimes2)
+length(grep("Monday",weekdays(sampleTimes2))) #there should be a more efficient way than this 2-tier step.
