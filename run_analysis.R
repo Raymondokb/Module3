@@ -11,3 +11,7 @@ train_x_train <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%
 train_y_train <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%2FUCI HAR Dataset\\UCI HAR Dataset\\train\\y_train.txt")
 
 grep("mean",features$V2)
+grep("std", features$V2)
+
+
+union(grep("mean",features$V2),grep("std", features$V2) )
