@@ -49,5 +49,10 @@ all.data2 <- cbind(all.data2, indicators.full$descript)
 
 colnames(all.data2) <- c(features[union_index,2],"Description")
 
-
-
+#"WALKING" etc
+all.data2Walk <- all.data2[which(all.data2$Description=="WALKING"),]
+all.data2walkup <- all.data2[which(all.data2$Description=="WALKING_UPSTAIRS"),]
+all.data2walkdown <- all.data2[which(all.data2$Description=="WALKING_DOWNSTAIRS"),]
+all.data2sit <- all.data2[which(all.data2$Description=="SITTING"),]
+all.data2stand <- all.data2[which(all.data2$Description=="STANDING"),]
+all.data2lay <- all.data2[which(all.data2$Description=="LAYING"),]
