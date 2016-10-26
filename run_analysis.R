@@ -14,4 +14,5 @@ grep("mean",features$V2)
 grep("std", features$V2)
 
 
-union(grep("mean",features$V2),grep("std", features$V2) )
+#union(grep("mean",features$V2),grep("std", features$V2) )
+table(test_y_test)
