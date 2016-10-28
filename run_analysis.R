@@ -13,6 +13,9 @@ train_y_train <- read.table("D:\\Users\\user\\Downloads\\getdata_2Fprojectfiles%
 grep("mean",features$V2)
 grep("std", features$V2)
 
+#Story time
+# To get each participant's each activity's mean of the ~79 measurements with gyro having 'mean' or 'sd'
+
 
 #union(grep("mean",features$V2),grep("std", features$V2) )
 #library(dplyr)
@@ -112,11 +115,15 @@ sit.df <- data.frame(sit.matrix, stringsAsFactors = FALSE)
 stand.df <- data.frame(stand.matrix, stringsAsFactors = FALSE)
 lay.df <- data.frame(lay.matrix, stringsAsFactors = FALSE)
 
-
+#Ended up not using this
 desired.list <- list("WALKING"=walking.df, "WALKING_UPSTAIRS"=walkup.df, "WALKING_DOWNSTAIRS"=walkdown.df, "SITTING"=sit.df, "STANDING"=stand.df, "LAYING"=lay.df)
 
 
 desired.set <- rbind(walking.df, walkup.df, walkdown.df, sit.df, stand.df, lay.df)
 desired.set$Participants <- as.numeric(desired.set$Participants)
 output.set <- desired.set[order(desired.set$Participants),]
-output.set <- output.set[,c(80,81,1:79)]
+output.set <- output.set[,c(80,81,1:79)] #Reorder to be easier for marker
+
+
+setwd("D:\\Users\\user\\Desktop\\DataScienceCoursera\\Module3\\Module3_Project")
+write.table(output.set, "Output.txt", row.names=FALSE)
