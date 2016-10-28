@@ -26,6 +26,11 @@ grep("std", features$V2)
 #test_subject_test <- tbl_df(test_subject_test)
 #train_subject_train <- tbl_df(train_subject_train)
 
+test_x_test <- cbind(test_x_test,test_subject_test)
+train_x_train <- cbind(train_x_train, train_subject_train)
+colnames(test_x_test)[562] <- "Participants"
+colnames(train_x_train)[562] <- "Participants" #get participants
+
 for(i in 1:dim(test_y_test)[1]){
   test_y_test$descript[i] = activity_label[test_y_test[[1]][i],2]
 }
@@ -38,7 +43,7 @@ for(i in 1:dim(train_y_train)[1]){
 all.data <- rbind(train_x_train, test_x_test)
 grep("mean",features$V2)
 grep("std", features$V2)
-union_index <- union(grep("mean",features$V2),grep("std", features$V2) )
+union_index <- union(grep("mean",features$V2),grep("std", features$V2 ) )
 
 t_all.data <- t(all.data)
 subsetted <- t_all.data[union_index,]
